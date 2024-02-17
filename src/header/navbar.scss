@@ -1,0 +1,48 @@
+@import "../style.scss";
+.navbar {
+ justify-content: center;
+ align-items: center;
+ display: flex;
+    .left {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+
+      span {
+        font-weight: bold;
+        font-size: 20px;
+        color: #00D093;
+      }
+
+      .search {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border: 1px  ;
+        border-radius: 5px;
+        padding: 5px;
+        @include mobile{
+          display: none;
+        }
+
+        input {
+          border: none;
+          width: 500px;
+          background-color: transparent;
+
+         
+        }
+      }
+    }
+
+    .right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+        span {
+color: grey;
+        }
+      
+    }
+  
+}

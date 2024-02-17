@@ -1,0 +1,53 @@
+@import "../style.scss";
+
+.collectionContainer {
+  margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .collectionItem {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    margin-bottom: 20px;
+  }
+  
+  .item-content {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+  }
+  
+  .item-title {
+    @include mobile{
+      display: none;
+    }
+    font-weight: bold;
+  }
+  
+  .item-subtitle {
+    @include mobile{
+      display: none;
+    }
+    margin-top: 5px;
+  }
+  
+  .media-container {
+    display: flex;
+    align-items: center; /* Align items vertically */
+  }
+  
+  .media-item {
+    margin-right: 20px; /* Add margin between images */
+  }
+  
+  .media-item img {
+    @include mobile{
+      width: 40px;
+    }
+    width: 80px; /* Adjust image size */
+    height: auto;
+  }
+  

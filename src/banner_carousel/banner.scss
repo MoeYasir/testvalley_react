@@ -1,0 +1,74 @@
+/* BannerCarousel.css */
+
+/* Customize carousel container */
+.slick-slider {
+    position: relative;
+  }
+  
+  /* Customize carousel slides */
+  .slick-slide img {
+    width: 80%; /* Adjust the width of the images */
+    margin: 0 auto;
+  }
+  
+  /* Customize previous and next buttons */
+  .slick-prev,
+  .slick-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.5); /* Add opacity to buttons */
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+  }
+  
+  .slick-prev {
+    left: 170px;
+    background-color: none;
+
+  }
+  
+  .slick-next {
+    right: 170px;
+    background-color: none;
+  }
+  
+  /* Customize previous and next arrow icons */
+ 
+  
+  /* Customize arrow icons position */
+ 
+  
+  /* Customize dots */
+  .slick-dots {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Customize dot indicators */
+  .slick-dots li {
+    display: inline-block;
+    margin: 0 5px;
+  }
+  
+  /* Customize dot style */
+  .slick-dots li button {
+    font-size: 0; /* Hide dot button text */
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5); /* Change dot color */
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Customize active dot */
+  .slick-dots li.slick-active button {
+    background-color: rgba(0, 0, 0, 0.8); /* Change active dot color */
+  }
+  
