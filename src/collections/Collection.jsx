@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./collection.scss";
+import StarIcon from "@mui/icons-material/Star";
 
 const Collection = () => {
   const [data, setData] = useState(null); // State to store the fetched data
@@ -11,15 +12,17 @@ const Collection = () => {
         const res = await axios.get("https://api.testvalley.kr/collections", {
           params: {
             type: "SINGLE",
-            viewType: "TILE"
-          }
+            viewType: "TILE",
+          },
         });
 
         // Filter out items with type 'BUNDLE'
-        const filteredData = res.data.items.filter(item => item.type !== 'BUNDLE');
-        setData(filteredData); 
+        const filteredData = res.data.items.filter(
+          (item) => item.type !== "BUNDLE"
+        );
+        setData(filteredData);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
       }
     };
 
@@ -27,14 +30,14 @@ const Collection = () => {
   }, []); // Empty dependency array ensures useEffect runs only once when component mounts
 
   return (
-    <div className='collectionContainer'>
+    <div className="collectionContainer">
       {data ? (
         data.map((item, index) => (
-          <div key={index} className='collectionItem'>
+          <div key={index} className="collectionItem">
             <div className="item-content">
               {/* Render item title and subtitle */}
-              <p className='item-title'>{item.title}</p>
-              <p className='item-subtitle'>{item.subtitle}</p>
+              <p className="item-title">{item.title}</p>
+              <p className="item-subtitle">{item.subtitle}</p>
             </div>
             {/* Loop through media and render images */}
             <div className="media-container">
@@ -43,20 +46,33 @@ const Collection = () => {
                   {/* Accessing media array inside publication */}
                   {mediaItem.publication.media.map((media, index) => (
                     <div>
-                    <img key={index} src={media.uri} alt='' />
-                    {mediaItem.publication.priceInfo.couponDiscountRate && mediaItem.publication.priceInfo.couponDiscountPrice && (
-  <p className="coupon-rate">
-    <span style={{ color: 'red' }}>{mediaItem.publication.priceInfo.couponDiscountRate}%</span>
-    {mediaItem.publication.priceInfo.couponDiscountPrice}
-  </p>
-)}
-
+                      <img key={index} src={media.uri} alt="" />
+                      <p className="produtName">
+                        {mediaItem.publication.title}
+                      </p>
+                      {mediaItem.publication.priceInfo.couponDiscountRate &&
+                        mediaItem.publication.priceInfo.couponDiscountPrice && (
+                          <p className="coupon-rate">
+                            <span style={{ color: "red" }}>
+                              {
+                                mediaItem.publication.priceInfo
+                                  .couponDiscountRate
+                              }
+                              %
+                            </span>
+                            {
+                              mediaItem.publication.priceInfo
+                                .couponDiscountPrice
+                            }
+                          </p>
+                        )}
+                      <div style={{display: 'flex' , alignItems: 'center', fontSize: '12px'}}>
+                        <StarIcon style={{color: 'gray', width: '15px', height: '15px'}}/>
+                        {mediaItem.publication.rating}
+                      </div>
                     </div>
                   ))}
-                  
                 </div>
-                
-
               ))}
             </div>
           </div>

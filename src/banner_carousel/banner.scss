@@ -7,7 +7,7 @@
   
   /* Customize carousel slides */
   .slick-slide img {
-    width: 80%; /* Adjust the width of the images */
+    width: 60%; /* Adjust the width of the images */
     margin: 0 auto;
   }
   
@@ -18,21 +18,21 @@
     top: 50%;
     transform: translateY(-50%);
     z-index: 1;
-    background-color: rgba(255, 255, 255, 0.5); /* Add opacity to buttons */
+    background-color: rgba(0, 0, 0, 0.5); /* Add opacity to buttons */
     border: none;
     cursor: pointer;
-    padding: 10px;
+    padding: 1px 0;
     border-radius: 50%;
   }
   
   .slick-prev {
-    left: 170px;
+    left: 22%;
     background-color: none;
 
   }
   
   .slick-next {
-    right: 170px;
+    right: 22%;
     background-color: none;
   }
   

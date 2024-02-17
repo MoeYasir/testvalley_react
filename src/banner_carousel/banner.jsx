@@ -11,6 +11,8 @@ const BannerCarousel = ({ banners }) => {
     dots: false,
     infinite: true,
     speed: 500,
+    autoplay: true,
+    autoplaySpeed: 4000,
     slidesToShow: 1,
     slidesToScroll: 1,
     beforeChange: (current, next) => setCurrentSlide(next),
