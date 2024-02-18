@@ -1,39 +1,50 @@
-import React, { useState } from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import './banner.scss'; // Custom CSS for carousel
+import React, { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "./banner.scss"; // Custom CSS for carousel
+import { Pagination, Navigation, Autoplay } from "swiper/modules";
 
 const BannerCarousel = ({ banners }) => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const settings = {
-    className: "center",
-    centerMode: true,
-    infinite: true,
-    slidesToShow: 3,
-    speed: 500,
-    dots: false,
-    speed: 500,
-    autoplay: true,
-    autoplaySpeed: 4000,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    beforeChange: (current, next) => setCurrentSlide(next),
-    afterChange: (current) => setCurrentSlide(current),
-  };
-
   return (
     <div className="banner-carousel-container">
-      <Slider {...settings}>
+      <div className="swiper-button image-swiper-button-next">
+        <ArrowForwardIosIcon />
+      </div>
+      <div className="swiper-button image-swiper-button-prev">
+        <ArrowBackIosNewIcon />
+      </div>
+      <Swiper
+        centeredSlides={true}
+        slidesPerView={1}
+        spaceBetween={0}
+        pagination={{
+          clickable: true,
+        }}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
+        loop={true}
+        navigation={{
+          nextEl: ".image-swiper-button-next",
+          prevEl: ".image-swiper-button-prev",
+          disabledClass: "swiper-button-disabled",
+        }}
+        modules={[Pagination, Navigation, Autoplay]}
+        className="mySwiper"
+      >
         {banners.map((banner, index) => (
-          <div key={index}>
+          <SwiperSlide>
             <img src={banner.pcImageUrl} alt={banner.title} />
-          </div>
+          </SwiperSlide>
         ))}
-      </Slider>
-    
-      
+      </Swiper>
     </div>
   );
 };
