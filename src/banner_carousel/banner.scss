@@ -1,14 +1,31 @@
-/* BannerCarousel.css */
 
-/* Customize carousel container */
+
+
+
 .slick-slider {
     position: relative;
   }
-  
+
+  // .slick-center > div {
+  //   width: 100%;
+  //   opacity: 1;
+  // }
+  .slick-slide:not(.slick-center) {
+    opacity: 0.5;
+ }
+  .slick-slide{
+    transform: scale((0.8));
+    padding: 20px 0px;
+    width: 100%;
+  } 
   /* Customize carousel slides */
   .slick-slide img {
-    width: 60%; /* Adjust the width of the images */
-    margin: 0 auto;
+   
+    // opacity: 0.5;
+    // height: 40;
+   width: 100%;
+    // margin: 0 auto;
+    
   }
   
   /* Customize previous and next buttons */
@@ -71,4 +88,7 @@
   .slick-dots li.slick-active button {
     background-color: rgba(0, 0, 0, 0.8); /* Change active dot color */
   }
-  
+
+
+  /* BannerCarousel.css */
+

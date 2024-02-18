@@ -8,12 +8,16 @@ const BannerCarousel = ({ banners }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const settings = {
-    dots: false,
+    className: "center",
+    centerMode: true,
     infinite: true,
+    slidesToShow: 3,
+    speed: 500,
+    dots: false,
     speed: 500,
     autoplay: true,
     autoplaySpeed: 4000,
-    slidesToShow: 1,
+    slidesToShow: 3,
     slidesToScroll: 1,
     beforeChange: (current, next) => setCurrentSlide(next),
     afterChange: (current) => setCurrentSlide(current),
